@@ -2,7 +2,7 @@ from urllib import request, parse
 import json, os
 
 
-def send_message():
+def send_message(event, context):
     # get url from environment variable
     url = os.environ['SLACK_URL']
     body = {"text": "Please dont delete this is a working in progress app"}
@@ -17,4 +17,4 @@ def send_message():
     print(resp)
 
 
-send_message()
+send_message("arg1", "arg2")
