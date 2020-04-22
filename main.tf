@@ -30,9 +30,11 @@ resource "aws_iam_role" "iam_for_lambda" {
   ]
 }
 EOF
+
+
 }
 
-resource "aws_lambda_function" "test_lambda" {
+resource "aws_lambda_function" "slack_lambda" {
   filename      = "notify_slack.zip"
   function_name = "terraform-slack-notifier"
   role          = aws_iam_role.iam_for_lambda.arn
