@@ -1,6 +1,6 @@
 provider "archive" {}
 
-data "archive_file" "lambda" {
+data "archive_file" "slack_lambda_file" {
   type = "zip"
 
   source_file = "notify_slack.py"
@@ -46,5 +46,5 @@ resource "aws_lambda_function" "test_lambda" {
     }
   }
 
-  depends_on = ["data.archive_file.lambda"]
+  depends_on = [data.archive_file.slack_lambda_file]
 }
