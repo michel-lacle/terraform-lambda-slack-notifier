@@ -1,3 +1,8 @@
+variable "slack-url" {
+  type = 'string'
+}
+
+
 provider "archive" {}
 
 data "archive_file" "slack_lambda_file" {
@@ -42,7 +47,7 @@ resource "aws_lambda_function" "test_lambda" {
 
   environment {
     variables = {
-      foo = "bar"
+      SLACK_URL = var.slack-url
     }
   }
 
