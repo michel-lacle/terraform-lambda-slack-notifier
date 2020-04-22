@@ -1,5 +1,5 @@
 variable "slack-url" {
-  type = 'string'
+  type = string
 }
 
 
