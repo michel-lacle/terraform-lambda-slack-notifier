@@ -2,8 +2,8 @@ from urllib import request, parse
 import json
 
 def send_message():
-    url = 'https://hooks.slack.com/services/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'
-    body = {"text": "Hello, World!"}
+    url = 'https://hooks.slack.com/services/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'
+    body = {"text": "Please dont delete this is a working in progress app"}
 
     jsondata = json.dumps(body);
     jsondatabytes = jsondata.encode('utf-8')
