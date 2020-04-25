@@ -6,7 +6,7 @@ def send_message(event, context):
     # get url from environment variable
     url = os.environ['SLACK_URL']
     s3url = os.environ['S3_DOWNLOAD_URL']
-    body = {"text": f"A new *YourApplication* build has completed, and the artifact can be downloaded here: {s3url}"}
+    body = {"text": f"```${event}```"}
 
     jsondata = json.dumps(body);
     jsondatabytes = jsondata.encode('utf-8')
