@@ -10,7 +10,6 @@ def send_message(event, context):
 
     response = client.publish(
         TopicArn=arn,
-        TargetArn='string',
         Message='See details about failure here',
         Subject='Stage Failed'
     )
