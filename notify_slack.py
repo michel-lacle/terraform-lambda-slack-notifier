@@ -5,7 +5,6 @@ import json, os
 def send_message(event, context):
     # get url from environment variable
     url = os.environ['SLACK_URL']
-    s3url = os.environ['S3_DOWNLOAD_URL']
     body = {"text": f"```${event}```"}
 
     jsondata = json.dumps(body);
