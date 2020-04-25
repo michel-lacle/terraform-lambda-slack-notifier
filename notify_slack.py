@@ -18,4 +18,4 @@ def send_message(event, context):
     print(resp)
 
 
-send_message("arg1", "arg2")
+#send_message("arg1", "arg2")
