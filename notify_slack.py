@@ -5,7 +5,8 @@ import json, os
 def send_message(event, context):
     # get url from environment variable
     url = os.environ['SLACK_URL']
-    body = {"text": "Please dont delete this is a working in progress app"}
+    s3url = os.environ['S3_DOWNLOAD_URL']
+    body = {"text": f"A new *YourApplication* build has completed, and the artifact can be downloaded here: {s3url}"}
 
     jsondata = json.dumps(body);
     jsondatabytes = jsondata.encode('utf-8')
@@ -17,4 +18,4 @@ def send_message(event, context):
     print(resp)
 
 
-# send_message("arg1", "arg2")
+send_message("arg1", "arg2")
