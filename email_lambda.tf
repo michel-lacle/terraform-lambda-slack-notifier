@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
 
   statement {
     actions = [
-      "SNS:Publish"
+      "sns:Publish"
     ]
 
     effect = "Allow"
@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
       aws_sns_topic.email-topic.arn
     ]
 
-    sid = "email-sns-id"
+    sid = "emailsnsid"
   }
 }
 
