@@ -6,7 +6,7 @@ data "archive_file" "email_lambda_file" {
 }
 
 data "aws_iam_policy_document" "sns_topic_policy" {
-  policy_id = "__email_lambda_policy_ID"
+  #policy_id = "__email_lambda_policy_ID"
 
   statement {
     actions = [
@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
       aws_sns_topic.email-topic.arn
     ]
 
-    sid = "__default_statement_ID"
+    #sid = "__default_statement_ID"
   }
 }
 
