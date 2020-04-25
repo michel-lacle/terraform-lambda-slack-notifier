@@ -23,17 +23,6 @@ data "aws_iam_policy_document" "sns_topic_policy" {
   }
 }
 
-resource "aws_iam_policy" "allow_lambda_to_publish_sns" {
-  assume_role_policy = ""
-  policy = ""
-}
-
-resource "aws_lambda_permission" "" {
-  action = ""
-  function_name = ""
-  principal = ""
-}
-
 resource "aws_iam_role" "iam_for_email_lambda" {
   name = "iam_for_email_lambda"
 
@@ -58,9 +47,6 @@ resource "aws_iam_role_policy" "allow_lambda_to_publish_sns_topic" {
   policy = data.aws_iam_policy_document.sns_topic_policy.json
   role = aws_iam_role.iam_for_email_lambda.id
 }
-
-
-
 
 resource "aws_lambda_function" "email_lambda" {
   filename      = "notify_email.zip"
