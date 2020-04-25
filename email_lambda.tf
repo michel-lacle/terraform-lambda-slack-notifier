@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
       aws_sns_topic.email-topic.arn
     ]
 
-    #sid = "__default_statement_ID"
+    sid = "email-sns-id"
   }
 }
 
