@@ -5,6 +5,35 @@ data "archive_file" "email_lambda_file" {
   output_path = "notify_email.zip"
 }
 
+data "aws_iam_policy_document" "sns_topic_policy" {
+  policy_id = "__email_lambda_policy_ID"
+
+  statement {
+    actions = [
+      "SNS:Publish"
+    ]
+
+    effect = "Allow"
+
+    resources = [
+      aws_sns_topic.email-topic.arn
+    ]
+
+    sid = "__default_statement_ID"
+  }
+}
+
+resource "aws_iam_policy" "allow_lambda_to_publish_sns" {
+  assume_role_policy = ""
+  policy = ""
+}
+
+resource "aws_lambda_permission" "" {
+  action = ""
+  function_name = ""
+  principal = ""
+}
+
 resource "aws_iam_role" "iam_for_email_lambda" {
   name = "iam_for_email_lambda"
 
@@ -24,6 +53,14 @@ resource "aws_iam_role" "iam_for_email_lambda" {
 }
 EOF
 }
+
+resource "aws_iam_role_policy" "allow_lambda_to_publish_sns_topic" {
+  policy = data.aws_iam_policy_document.sns_topic_policy.json
+  role = aws_iam_role.iam_for_email_lambda.id
+}
+
+
+
 
 resource "aws_lambda_function" "email_lambda" {
   filename      = "notify_email.zip"
